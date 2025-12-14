@@ -7,45 +7,48 @@ app = FastAPI()
 
 HTML_PAGE = """
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>GitHub Repo Analyzer</title>
-    <style>
-        body {{
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            padding: 40px;
-        }}
-        .box {{
-            background: white;
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            border-radius: 8px;
-        }}
-        input {{
-            width: 80%;
-            padding: 10px;
-        }}
-        button {{
-            padding: 10px 20px;
-        }}
-        pre {{
-            background: #eee;
-            padding: 15px;
-            white-space: pre-wrap;
-        }}
-    </style>
+  <meta charset="UTF-8" />
+  <title>GitHub Repo Analyzer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="box">
-        <h2>GitHub Repository Analyzer</h2>
-        <form method="post">
-            <input name="repo_url" placeholder="https://github.com/user/repo" required />
-            <button type="submit">Analyze</button>
-        </form>
-        <pre>{result}</pre>
+<body class="bg-gradient-to-br from-slate-900 to-slate-800 min-h-screen flex items-center justify-center text-slate-100">
+
+  <div class="w-full max-w-3xl bg-slate-900/80 backdrop-blur rounded-xl shadow-xl p-8">
+    
+    <h1 class="text-3xl font-bold text-center mb-2">
+      🚀 GitHub Repository Analyzer
+    </h1>
+    <p class="text-center text-slate-400 mb-6">
+      Paste a public GitHub repo and get a score, summary & roadmap
+    </p>
+
+    <form method="post" class="flex gap-3 mb-6">
+      <input
+        name="repo_url"
+        required
+        placeholder="https://github.com/username/repository"
+        class="flex-1 px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <button
+        class="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition font-semibold"
+      >
+        Analyze
+      </button>
+    </form>
+
+    <div class="bg-slate-800 border border-slate-700 rounded-lg p-4">
+      <h2 class="font-semibold mb-2 text-blue-400">Analysis Output</h2>
+      <pre class="text-sm whitespace-pre-wrap text-slate-200">{result}</pre>
     </div>
+
+    <footer class="text-center text-xs text-slate-500 mt-6">
+      Built with FastAPI + AI Code Analysis
+    </footer>
+
+  </div>
+
 </body>
 </html>
 """
