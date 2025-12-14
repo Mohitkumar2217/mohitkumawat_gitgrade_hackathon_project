@@ -1,3 +1,6 @@
+fastapi
+uvicorn
 requests
 radon
+python-multipart
 pygments
